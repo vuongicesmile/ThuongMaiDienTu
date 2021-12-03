@@ -1,0 +1,20 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+
+class CategoryTranslation extends Model
+{
+    use HasFactory;
+
+    public $timestamps = false;
+    protected $fillable = ['category_id','locale','title', 'content'];
+
+    public function category() // category so it
+    {
+        return $this->belongsTo(Category::class,'category_id');
+    }
+}
